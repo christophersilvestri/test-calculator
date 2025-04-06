@@ -11,180 +11,415 @@
 </head>
 <body>
     <div class="container">
-        <h1>Copy Estimate Calculator</h1>
-        
-        <div class="rate-section">
-            <label for="hourlyRate">Hourly Rate ($):</label>
-            <input type="number" id="hourlyRate" value="200" min="0">
-        </div>
-
-        <div class="categories">
-            <!-- Intake Section -->
-            <div class="category">
-                <h2>1. Intake</h2>
-                <div class="task" data-hours="1">
-                    <input type="checkbox" id="survey">
-                    <label for="survey">Survey</label>
-                    <input type="number" class="hours" value="1" min="0">
+        <aside class="sidebar">
+            <div class="summary">
+                <h2>Summary</h2>
+                <div class="summary-item">
+                    <span>Total Hours:</span>
+                    <span id="totalHours">0</span>
+                </div>
+                <div class="summary-item">
+                    <span>Total Cost:</span>
+                    <span id="totalCost">$0</span>
                 </div>
             </div>
+            <button id="exportBtn">Export to CSV</button>
+        </aside>
 
-            <!-- Research and Strategy Section -->
-            <div class="category">
-                <h2>2. Research and Strategy</h2>
-                <div class="task" data-hours="5">
-                    <input type="checkbox" id="review-mining">
-                    <label for="review-mining">Review mining</label>
-                    <input type="number" class="hours" value="5" min="0">
-                </div>
-                <div class="task" data-hours="4">
-                    <input type="checkbox" id="competitor-analysis">
-                    <label for="competitor-analysis">Competitor analysis</label>
-                    <input type="number" class="hours" value="4" min="0">
-                </div>
-                <div class="task" data-hours="2">
-                    <input type="checkbox" id="website-survey">
-                    <label for="website-survey">Website survey</label>
-                    <input type="number" class="hours" value="2" min="0">
-                </div>
-                <div class="task" data-hours="1">
-                    <input type="checkbox" id="website-heatmaps">
-                    <label for="website-heatmaps">Website heatmaps</label>
-                    <input type="number" class="hours" value="1" min="0">
-                </div>
-                <div class="task" data-hours="4">
-                    <input type="checkbox" id="team-interviews">
-                    <label for="team-interviews">Team interviews</label>
-                    <input type="number" class="hours" value="4" min="0">
-                </div>
-                <div class="task" data-hours="2">
-                    <input type="checkbox" id="customer-survey">
-                    <label for="customer-survey">Customer survey + PMF check</label>
-                    <input type="number" class="hours" value="2" min="0">
-                </div>
-                <div class="task" data-hours="10">
-                    <input type="checkbox" id="customer-interviews">
-                    <label for="customer-interviews">Customer interviews</label>
-                    <input type="number" class="hours" value="10" min="0">
-                </div>
-                <div class="task" data-hours="3">
-                    <input type="checkbox" id="position-mapping">
-                    <label for="position-mapping">Position mapping</label>
-                    <input type="number" class="hours" value="3" min="0">
-                </div>
-                <div class="task" data-hours="3">
-                    <input type="checkbox" id="icp-development">
-                    <label for="icp-development">ICP development</label>
-                    <input type="number" class="hours" value="3" min="0">
-                </div>
-                <div class="task" data-hours="2">
-                    <input type="checkbox" id="positioning-workshop">
-                    <label for="positioning-workshop">Positioning workshop</label>
-                    <input type="number" class="hours" value="2" min="0">
-                </div>
-                <div class="task" data-hours="5">
-                    <input type="checkbox" id="value-proposition">
-                    <label for="value-proposition">Value proposition framework</label>
-                    <input type="number" class="hours" value="5" min="0">
-                </div>
+        <main class="main-content">
+            <h1>Copy Estimate Calculator</h1>
+            
+            <div class="rate-section">
+                <label for="hourlyRate">Hourly Rate ($):</label>
+                <input type="number" id="hourlyRate" value="200" min="0">
             </div>
 
-            <!-- Message Testing Section -->
-            <div class="category">
-                <h2>3. Message Testing</h2>
-                <div class="task" data-hours="2">
-                    <input type="checkbox" id="team-alignment">
-                    <label for="team-alignment">Team alignment surveys</label>
-                    <input type="number" class="hours" value="2" min="0">
+            <div class="categories">
+                <!-- Intake Section -->
+                <div class="category">
+                    <div class="category-header">
+                        <h2>1. Intake</h2>
+                    </div>
+                    <div class="tasks-grid">
+                        <div class="task" data-hours="1">
+                            <div class="task-header">
+                                <input type="checkbox" id="survey">
+                                <label for="survey">Survey</label>
+                            </div>
+                            <div class="task-inputs">
+                                <div class="input-group">
+                                    <span>Hours:</span>
+                                    <input type="number" class="hours" value="1" min="0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="add-task-btn" data-category="intake">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                        Add Custom Task
+                    </button>
                 </div>
-                <div class="task" data-hours="5">
-                    <input type="checkbox" id="website-ab-test">
-                    <label for="website-ab-test">Website AB test</label>
-                    <input type="number" class="hours" value="5" min="0">
-                </div>
-                <div class="task" data-hours="5">
-                    <input type="checkbox" id="wynter">
-                    <label for="wynter">Wynter</label>
-                    <input type="number" class="hours" value="5" min="0">
-                </div>
-                <div class="task" data-hours="5">
-                    <input type="checkbox" id="email-test">
-                    <label for="email-test">Email test</label>
-                    <input type="number" class="hours" value="5" min="0">
-                </div>
-                <div class="task" data-hours="5">
-                    <input type="checkbox" id="five-second-test">
-                    <label for="five-second-test">5 second test</label>
-                    <input type="number" class="hours" value="5" min="0">
-                </div>
-                <div class="task" data-hours="5">
-                    <input type="checkbox" id="preference-test">
-                    <label for="preference-test">Preference test</label>
-                    <input type="number" class="hours" value="5" min="0">
-                </div>
-                <div class="task" data-hours="5">
-                    <input type="checkbox" id="usability-testing">
-                    <label for="usability-testing">Moderated/unmoderated usability testing</label>
-                    <input type="number" class="hours" value="5" min="0">
-                </div>
-            </div>
 
-            <!-- Website Copy Section -->
-            <div class="category">
-                <h2>4. Website Copy</h2>
-                <div class="task" data-hours="15">
-                    <input type="checkbox" id="homepage">
-                    <label for="homepage">Homepage</label>
-                    <input type="number" class="hours" value="15" min="0">
+                <!-- Research and Strategy Section -->
+                <div class="category">
+                    <div class="category-header">
+                        <h2>2. Research and Strategy</h2>
+                    </div>
+                    <div class="tasks-grid">
+                        <div class="task" data-hours="5">
+                            <div class="task-header">
+                                <input type="checkbox" id="review-mining">
+                                <label for="review-mining">Review mining</label>
+                            </div>
+                            <div class="task-inputs">
+                                <div class="input-group">
+                                    <span>Hours:</span>
+                                    <input type="number" class="hours" value="5" min="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task" data-hours="4">
+                            <div class="task-header">
+                                <input type="checkbox" id="competitor-analysis">
+                                <label for="competitor-analysis">Competitor analysis</label>
+                            </div>
+                            <div class="task-inputs">
+                                <div class="input-group">
+                                    <span>Hours:</span>
+                                    <input type="number" class="hours" value="4" min="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task" data-hours="2">
+                            <div class="task-header">
+                                <input type="checkbox" id="website-survey">
+                                <label for="website-survey">Website survey</label>
+                            </div>
+                            <div class="task-inputs">
+                                <div class="input-group">
+                                    <span>Hours:</span>
+                                    <input type="number" class="hours" value="2" min="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task" data-hours="1">
+                            <div class="task-header">
+                                <input type="checkbox" id="website-heatmaps">
+                                <label for="website-heatmaps">Website heatmaps</label>
+                            </div>
+                            <div class="task-inputs">
+                                <div class="input-group">
+                                    <span>Hours:</span>
+                                    <input type="number" class="hours" value="1" min="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task" data-hours="4">
+                            <div class="task-header">
+                                <input type="checkbox" id="team-interviews">
+                                <label for="team-interviews">Team interviews</label>
+                            </div>
+                            <div class="task-inputs">
+                                <div class="input-group">
+                                    <span>Hours:</span>
+                                    <input type="number" class="hours" value="4" min="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task" data-hours="2">
+                            <div class="task-header">
+                                <input type="checkbox" id="customer-survey">
+                                <label for="customer-survey">Customer survey + PMF check</label>
+                            </div>
+                            <div class="task-inputs">
+                                <div class="input-group">
+                                    <span>Hours:</span>
+                                    <input type="number" class="hours" value="2" min="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task" data-hours="10">
+                            <div class="task-header">
+                                <input type="checkbox" id="customer-interviews">
+                                <label for="customer-interviews">Customer interviews</label>
+                            </div>
+                            <div class="task-inputs">
+                                <div class="input-group">
+                                    <span>Hours:</span>
+                                    <input type="number" class="hours" value="10" min="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task" data-hours="3">
+                            <div class="task-header">
+                                <input type="checkbox" id="position-mapping">
+                                <label for="position-mapping">Position mapping</label>
+                            </div>
+                            <div class="task-inputs">
+                                <div class="input-group">
+                                    <span>Hours:</span>
+                                    <input type="number" class="hours" value="3" min="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task" data-hours="3">
+                            <div class="task-header">
+                                <input type="checkbox" id="icp-development">
+                                <label for="icp-development">ICP development</label>
+                            </div>
+                            <div class="task-inputs">
+                                <div class="input-group">
+                                    <span>Hours:</span>
+                                    <input type="number" class="hours" value="3" min="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task" data-hours="2">
+                            <div class="task-header">
+                                <input type="checkbox" id="positioning-workshop">
+                                <label for="positioning-workshop">Positioning workshop</label>
+                            </div>
+                            <div class="task-inputs">
+                                <div class="input-group">
+                                    <span>Hours:</span>
+                                    <input type="number" class="hours" value="2" min="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task" data-hours="5">
+                            <div class="task-header">
+                                <input type="checkbox" id="value-proposition">
+                                <label for="value-proposition">Value proposition framework</label>
+                            </div>
+                            <div class="task-inputs">
+                                <div class="input-group">
+                                    <span>Hours:</span>
+                                    <input type="number" class="hours" value="5" min="0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="add-task-btn" data-category="research">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                        Add Custom Task
+                    </button>
                 </div>
-                <div class="task" data-hours="10">
-                    <input type="checkbox" id="about-page">
-                    <label for="about-page">About page</label>
-                    <input type="number" class="hours" value="10" min="0">
-                </div>
-                <div class="task" data-hours="8">
-                    <input type="checkbox" id="product-page">
-                    <label for="product-page">Product page</label>
-                    <input type="number" class="hours" value="8" min="0">
-                    <input type="number" class="quantity" value="1" min="1">
-                </div>
-                <div class="task" data-hours="8">
-                    <input type="checkbox" id="solutions-page">
-                    <label for="solutions-page">Solutions page</label>
-                    <input type="number" class="hours" value="8" min="0">
-                    <input type="number" class="quantity" value="1" min="1">
-                </div>
-                <div class="task" data-hours="8">
-                    <input type="checkbox" id="pricing-page">
-                    <label for="pricing-page">Pricing page</label>
-                    <input type="number" class="hours" value="8" min="0">
-                </div>
-                <div class="task" data-hours="8">
-                    <input type="checkbox" id="landing-page">
-                    <label for="landing-page">Landing page</label>
-                    <input type="number" class="hours" value="8" min="0">
-                </div>
-                <div class="task" data-hours="3">
-                    <input type="checkbox" id="final-testing">
-                    <label for="final-testing">Final testing & validation</label>
-                    <input type="number" class="hours" value="3" min="0">
-                </div>
-            </div>
-        </div>
 
-        <div class="summary">
-            <h2>Summary</h2>
-            <div class="summary-item">
-                <span>Total Hours:</span>
-                <span id="totalHours">0</span>
-            </div>
-            <div class="summary-item">
-                <span>Total Cost:</span>
-                <span id="totalCost">$0</span>
-            </div>
-        </div>
+                <!-- Message Testing Section -->
+                <div class="category">
+                    <div class="category-header">
+                        <h2>3. Message Testing</h2>
+                    </div>
+                    <div class="tasks-grid">
+                        <div class="task" data-hours="2">
+                            <div class="task-header">
+                                <input type="checkbox" id="team-alignment">
+                                <label for="team-alignment">Team alignment surveys</label>
+                            </div>
+                            <div class="task-inputs">
+                                <div class="input-group">
+                                    <span>Hours:</span>
+                                    <input type="number" class="hours" value="2" min="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task" data-hours="5">
+                            <div class="task-header">
+                                <input type="checkbox" id="website-ab-test">
+                                <label for="website-ab-test">Website AB test</label>
+                            </div>
+                            <div class="task-inputs">
+                                <div class="input-group">
+                                    <span>Hours:</span>
+                                    <input type="number" class="hours" value="5" min="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task" data-hours="5">
+                            <div class="task-header">
+                                <input type="checkbox" id="wynter">
+                                <label for="wynter">Wynter</label>
+                            </div>
+                            <div class="task-inputs">
+                                <div class="input-group">
+                                    <span>Hours:</span>
+                                    <input type="number" class="hours" value="5" min="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task" data-hours="5">
+                            <div class="task-header">
+                                <input type="checkbox" id="email-test">
+                                <label for="email-test">Email test</label>
+                            </div>
+                            <div class="task-inputs">
+                                <div class="input-group">
+                                    <span>Hours:</span>
+                                    <input type="number" class="hours" value="5" min="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task" data-hours="5">
+                            <div class="task-header">
+                                <input type="checkbox" id="five-second-test">
+                                <label for="five-second-test">5 second test</label>
+                            </div>
+                            <div class="task-inputs">
+                                <div class="input-group">
+                                    <span>Hours:</span>
+                                    <input type="number" class="hours" value="5" min="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task" data-hours="5">
+                            <div class="task-header">
+                                <input type="checkbox" id="preference-test">
+                                <label for="preference-test">Preference test</label>
+                            </div>
+                            <div class="task-inputs">
+                                <div class="input-group">
+                                    <span>Hours:</span>
+                                    <input type="number" class="hours" value="5" min="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task" data-hours="5">
+                            <div class="task-header">
+                                <input type="checkbox" id="usability-testing">
+                                <label for="usability-testing">Moderated/unmoderated usability testing</label>
+                            </div>
+                            <div class="task-inputs">
+                                <div class="input-group">
+                                    <span>Hours:</span>
+                                    <input type="number" class="hours" value="5" min="0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="add-task-btn" data-category="testing">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                        Add Custom Task
+                    </button>
+                </div>
 
-        <button id="exportBtn">Export to CSV</button>
+                <!-- Website Copy Section -->
+                <div class="category">
+                    <div class="category-header">
+                        <h2>4. Website Copy</h2>
+                    </div>
+                    <div class="tasks-grid">
+                        <div class="task" data-hours="15">
+                            <div class="task-header">
+                                <input type="checkbox" id="homepage">
+                                <label for="homepage">Homepage</label>
+                            </div>
+                            <div class="task-inputs">
+                                <div class="input-group">
+                                    <span>Hours:</span>
+                                    <input type="number" class="hours" value="15" min="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task" data-hours="10">
+                            <div class="task-header">
+                                <input type="checkbox" id="about-page">
+                                <label for="about-page">About page</label>
+                            </div>
+                            <div class="task-inputs">
+                                <div class="input-group">
+                                    <span>Hours:</span>
+                                    <input type="number" class="hours" value="10" min="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task" data-hours="8">
+                            <div class="task-header">
+                                <input type="checkbox" id="product-page">
+                                <label for="product-page">Product page</label>
+                            </div>
+                            <div class="task-inputs">
+                                <div class="input-group">
+                                    <span>Hours:</span>
+                                    <input type="number" class="hours" value="8" min="0">
+                                </div>
+                                <div class="input-group">
+                                    <span>Quantity:</span>
+                                    <input type="number" class="quantity" value="1" min="1">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task" data-hours="8">
+                            <div class="task-header">
+                                <input type="checkbox" id="solutions-page">
+                                <label for="solutions-page">Solutions page</label>
+                            </div>
+                            <div class="task-inputs">
+                                <div class="input-group">
+                                    <span>Hours:</span>
+                                    <input type="number" class="hours" value="8" min="0">
+                                </div>
+                                <div class="input-group">
+                                    <span>Quantity:</span>
+                                    <input type="number" class="quantity" value="1" min="1">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task" data-hours="8">
+                            <div class="task-header">
+                                <input type="checkbox" id="pricing-page">
+                                <label for="pricing-page">Pricing page</label>
+                            </div>
+                            <div class="task-inputs">
+                                <div class="input-group">
+                                    <span>Hours:</span>
+                                    <input type="number" class="hours" value="8" min="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task" data-hours="8">
+                            <div class="task-header">
+                                <input type="checkbox" id="landing-page">
+                                <label for="landing-page">Landing page</label>
+                            </div>
+                            <div class="task-inputs">
+                                <div class="input-group">
+                                    <span>Hours:</span>
+                                    <input type="number" class="hours" value="8" min="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task" data-hours="3">
+                            <div class="task-header">
+                                <input type="checkbox" id="final-testing">
+                                <label for="final-testing">Final testing & validation</label>
+                            </div>
+                            <div class="task-inputs">
+                                <div class="input-group">
+                                    <span>Hours:</span>
+                                    <input type="number" class="hours" value="3" min="0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="add-task-btn" data-category="copy">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                        Add Custom Task
+                    </button>
+                </div>
+            </div>
+        </main>
     </div>
     <script src="script.js"></script>
 </body>
