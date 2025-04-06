@@ -12,8 +12,11 @@
 <body>
     <div class="container">
         <aside class="sidebar">
+            <div class="rate-section">
+                <label for="hourlyRate">Hourly Rate ($):</label>
+                <input type="number" id="hourlyRate" value="200" min="0">
+            </div>
             <div class="summary">
-                <h2>Summary</h2>
                 <div class="summary-item">
                     <span>Total Hours:</span>
                     <span id="totalHours">0</span>
@@ -29,11 +32,6 @@
         <main class="main-content">
             <h1>Copy Estimate Calculator</h1>
             
-            <div class="rate-section">
-                <label for="hourlyRate">Hourly Rate ($):</label>
-                <input type="number" id="hourlyRate" value="200" min="0">
-            </div>
-
             <div class="categories">
                 <!-- Intake Section -->
                 <div class="category">

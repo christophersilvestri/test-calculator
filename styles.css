@@ -112,7 +112,7 @@ h1 {
 }
 
 .rate-section {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     padding: 1.25rem;
     background: var(--card-background);
     border-radius: 12px;
@@ -307,12 +307,17 @@ h1 {
 
 @media (max-width: 1024px) {
     body {
-        padding-bottom: 140px;
+        padding-bottom: 160px;
     }
 
     .container {
         grid-template-columns: 1fr;
         padding: 1rem;
+    }
+
+    .main-content {
+        padding: 1rem;
+        margin-bottom: 0;
     }
 
     .sidebar {
@@ -321,85 +326,58 @@ h1 {
         left: 0;
         right: 0;
         width: 100%;
-        z-index: 1000;
+        z-index: 1001;
         background: var(--background-color);
         padding: 0.75rem;
         box-shadow: 0 -4px 20px rgba(16, 41, 76, 0.1);
     }
 
-    .summary {
-        background: var(--primary-color);
+    .rate-section {
         margin: 0;
-        padding: 1rem;
-        border-radius: 12px;
-    }
-
-    .summary h2 {
-        font-size: 1.25rem;
-        margin-bottom: 0.5rem;
-        border-bottom: none;
-        padding-bottom: 0;
-    }
-
-    .summary-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin: 0.25rem 0;
-        font-size: 1rem;
-    }
-
-    #exportBtn {
-        margin-top: 0.75rem;
         padding: 0.75rem;
+        border-radius: 12px;
+        margin-bottom: 0.75rem;
+    }
+
+    .summary {
+        margin-bottom: 0.75rem;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        font-size: 2rem;
     }
 }
 
 @media (max-width: 768px) {
     body {
-        padding-bottom: 120px;
+        padding-bottom: 140px;
     }
 
-    .sidebar {
+    .rate-section {
         padding: 0.5rem;
+    }
+
+    .rate-section input {
+        width: 100px;
     }
 
     .summary {
         padding: 0.75rem;
     }
 
-    .summary-item {
-        font-size: 0.9rem;
+    h1 {
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
     }
 
-    .main-content {
-        padding: 1rem;
-        margin-bottom: 0;
-    }
-
-    .summary {
-        flex-direction: row;
-        flex-wrap: nowrap;
-        gap: 0.5rem;
-    }
-
-    .summary-item {
-        white-space: nowrap;
-        flex: 1;
+    .summary-item span {
+        font-size: 0.85rem;
     }
 
     .tasks-grid {
         grid-template-columns: 1fr;
-    }
-
-    h1 {
-        font-size: 1.75rem;
-    }
-
-    .rate-section {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
     }
 
     .task {
